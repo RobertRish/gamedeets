@@ -12,12 +12,12 @@ type User {
   _id: ID!
   username: String!
   email: String!
-  bookCount: Int
-  savedBooks: [Book]
+  gameCount: Int
+  savedGames: [Game]
 }
 
-type Book {
-  bookId: String!
+type Game {
+  gameId: String!
   description: String
   title: String
   image: String
@@ -25,8 +25,8 @@ type Book {
   authors: [String]
 }
 
-input BookInput {
-  bookId: String
+input GameInput {
+  gameId: String
   authors: [String]
   title: String
   description: String
@@ -42,8 +42,8 @@ type Query {
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
-  saveBook(bookData: BookInput): User
-  removeBook(bookId: String!) : User
+  saveGame(gameData: GameInput): User
+  removeGame(gameId: String!) : User
 }
 `;
 
