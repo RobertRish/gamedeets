@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 // import ApolloServer
 const { ApolloServer } = require('apollo-server-express');
+const request = require('request');
 
 // import our typeDefs and resolvers
 const { typeDefs, resolvers } = require('./schemas');
@@ -21,6 +22,32 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+//connecting to the twitch API
+const getToken = (url, callback) => {
+  const options = {
+    url: process.env.GET_TOKEN,
+    json: true,
+    body: {
+      client_id: process.env.CLIENT_ID,
+      client_secret: process.env.CLIENT_SECRET,
+      grant_type: 'client_credentials'
+    }
+  };
+  request.post(options, (err, res, body) => {
+    if(err){
+      return console.log(err);
+    }
+    console.log(`status: ${res.statusCode}`)
+    console.log(body);
+
+    callback(res);
+  })
+};
+
+getToken(process.env.GET_TOKEN, (res) => {
+  console.log(res);
+});
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
