@@ -4,6 +4,9 @@ const path = require('path');
 const { ApolloServer } = require('apollo-server-express');
 const request = require('request');
 
+const async = require("async");
+var accessToken = '';
+
 // import our typeDefs and resolvers
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -24,29 +27,58 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 //connecting to the twitch API
-const getToken = (url, callback) => {
-  const options = {
-    url: process.env.GET_TOKEN,
-    json: true,
-    body: {
-      client_id: process.env.CLIENT_ID,
-      client_secret: process.env.CLIENT_SECRET,
-      grant_type: 'client_credentials'
-    }
-  };
-  request.post(options, (err, res, body) => {
-    if(err){
-      return console.log(err);
-    }
-    console.log(`status: ${res.statusCode}`)
-    console.log(body);
 
-    callback(res);
-  })
+function gameRequest(accessToken){
+  setTimeout(() => {
+  const gameOptions = {
+      url: 'https://api.twitch.tv/helix/games/top',
+      method: 'GET',
+      headers:{
+          'Client-ID': 'lr3t63flx98zycubycppif1dcmop3v',
+          'Authorization': 'Bearer ' + accessToken
+      }
+  }
+  if(!accessToken){
+      console.log("No Token");
+  }else{
+      console.log(gameOptions);
+  
+  const gameRequest = request.get(gameOptions,(err,res,body) => {
+      if(err){
+          return console.log(err);
+      }
+      
+      console.log('Status: ${res.statusCode}');
+      console.log(JSON.parse(body));
+  });
+  
+  };
+  
+  },2000)
+  }
+const options = {
+  url: 'https://id.twitch.tv/oauth2/token',
+  json:true,
+  body: {
+  client_id: 'wlr3t63flx98zycubycppif1dcmop3v',
+  client_secret: 'rzivmpo1echjark9pja49c5txcziq4',
+  grant_type: 'client_credentials'
+  }
 };
 
-getToken(process.env.GET_TOKEN, (res) => {
-  console.log(res);
+
+
+
+
+
+request.post(options, (err,res,body)=>{
+  if(err){
+      return console.log(err);
+  }
+  console.log('Status: ${res.statusCode}');
+  console.log(body.access_token);
+  gameRequest(body.access_token);
+  
 });
 
 // Create a new instance of an Apollo server with the GraphQL schema
