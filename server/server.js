@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+require('dotenv').config();
 // import ApolloServer
 const { ApolloServer } = require('apollo-server-express');
 const request = require('request');
@@ -34,7 +35,7 @@ function gameRequest(accessToken){
       url: 'https://api.twitch.tv/helix/games/top',
       method: 'GET',
       headers:{
-          'Client-ID': 'lr3t63flx98zycubycppif1dcmop3v',
+          'Client-ID': process.env.CLIENT_ID,
           'Authorization': 'Bearer ' + accessToken
       }
   }
@@ -60,8 +61,8 @@ const options = {
   url: 'https://id.twitch.tv/oauth2/token',
   json:true,
   body: {
-  client_id: 'wlr3t63flx98zycubycppif1dcmop3v',
-  client_secret: 'rzivmpo1echjark9pja49c5txcziq4',
+  client_id: process.env.CLIENT_ID,
+  client_secret: process.env.CLIENT_SECRET,
   grant_type: 'client_credentials'
   }
 };
@@ -78,6 +79,7 @@ request.post(options, (err,res,body)=>{
   console.log('Status: ${res.statusCode}');
   console.log(body.access_token);
   gameRequest(body.access_token);
+  console.log();
   
 });
 
