@@ -18,20 +18,14 @@ type User {
 
 type Game {
   gameId: String!
-  description: String
-  title: String
-  image: String
-  link: String
-  authors: [String]
+  gameName: String
+  artURL: String
 }
 
 input GameInput {
   gameId: String
-  authors: [String]
-  title: String
-  description: String
-  image: String
-  link: String
+  gameName: String
+  artURL: String
 }
 
 type Query {
