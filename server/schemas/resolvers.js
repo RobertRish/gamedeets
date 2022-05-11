@@ -36,23 +36,23 @@ const resolvers = {
 
       return { token, user };
     },
-    saveGame: async (parent, { GameData }, context) => {
+    saveGame: async (parent, { gameData }, context) => {
       console.log("The user is  " + context.user.username);
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { savedGames: GameData }},
+          { $push: { savedGames: gameData }},
           { new: true }
         );
         return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeGame: async (parent, { GameId }, context) => {
+    removeGame: async (parent, { gameId }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedGames: { GameId }}},
+          { $pull: { savedGames: { gameId }}},
           { new: true }
         );
         return updatedUser;
