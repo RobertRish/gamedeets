@@ -32,8 +32,8 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_GAME = gql`
-  mutation saveBook($gameData: GameInput!) {
-    saveBook(gameData: $gameData) {
+  mutation saveGame($gameData: GameInput!) {
+    saveGame(gameData: $gameData) {
       _id
       username
       email
@@ -47,8 +47,8 @@ export const SAVE_GAME = gql`
 `;
 
 export const REMOVE_GAME = gql`
-  mutation removeBook($gameId: String!) {
-    removeBook(gameId: $gameId) {
+  mutation removeGame($gameId: String!) {
+    removeGame(gameId: $gameId) {
       _id
       username
       email
@@ -56,7 +56,10 @@ export const REMOVE_GAME = gql`
         gameId
         gameName
         artURL
+
       }
     }
   }
 `;
+
+
