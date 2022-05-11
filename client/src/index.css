@@ -1,6 +1,10 @@
+title{
+  background-color: blueviolet;
+}
+
 body {
   font-family: 'Play';
-  background-color: lightgray;
+  background-color: lightseagreen;
 }
 
 h1,
@@ -10,10 +14,21 @@ h4,
 h5,
 h6 {
   font-family: 'Play';
+  text-emphasis-color: red;
+  
 }
+.Navbar{
+  background-color: purple;
+  justify-content: center;
+}
+ form.control{
+   font-weight: 800;
+   background-color: orange;
+   
 
+ }
+
+ 
 .small {
   font-weight: 300;
 }
-
-
