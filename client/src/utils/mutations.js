@@ -21,9 +21,9 @@ export const ADD_USER = gql`
         username
         email
         bookCount
-        savedBooks {
+        savedGames {
           authors
-          bookId
+          gameId
           image
           link
           title
@@ -34,14 +34,14 @@ export const ADD_USER = gql`
   }
 `;
 
-export const SAVE_BOOK = gql`
-  mutation saveBook($bookData: BookInput!) {
-    saveBook(bookData: $bookData) {
+export const SAVE_GAME = gql`
+  mutation saveGame($gameData: GameInput!) {
+    saveGame(gameData: $gameData) {
       _id
       username
       email
-      savedBooks {
-        bookId
+      savedGames {
+        gameId
         authors
         description
         title
@@ -52,14 +52,14 @@ export const SAVE_BOOK = gql`
   }
 `;
 
-export const SAVE_BOOK_OLD = gql`
-  mutation saveBook($bookId: String!, $authors: [String], $title: String, $description: String, $image: String, $link: String) {
-    saveBook(bookId: $bookId, authors: $authors, title: $title, description: $description, image: $image, link: $link) {
+export const SAVE_GAME_OLD = gql`
+  mutation saveBook($gameId: String!, $authors: [String], $title: String, $description: String, $image: String, $link: String) {
+    saveGame(gameId: $gameId, authors: $authors, title: $title, description: $description, image: $image, link: $link) {
       _id
       username
       email
-      savedBooks {
-        bookId
+      savedGames {
+        gameId
         authors
         description
         title
@@ -70,14 +70,14 @@ export const SAVE_BOOK_OLD = gql`
   }
 `;
 
-export const REMOVE_BOOK = gql`
-  mutation removeBook($bookId: String!) {
-    removeBook(bookId: $bookId) {
+export const REMOVE_GAME = gql`
+  mutation removeGame($gameId: String!) {
+    removeGane(gameId: $gameId) {
       _id
       username
       email
-      savedBooks {
-        bookId
+      savedGames {
+        gameId
         authors
         description
         title
