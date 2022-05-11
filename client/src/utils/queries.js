@@ -9,11 +9,8 @@ export const GET_ME = gql`
       gameCount
       savedGames {
         gameId
-        authors
-        description
-        title
-        image
-        link
+        gameName
+        artURL
       }
     }
   }
