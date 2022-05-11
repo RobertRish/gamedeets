@@ -38,7 +38,7 @@ const SearchGames = () => {
     console.log("Input is :   " + searchInput);
     try {
       const response = await fetch(
-        `https://api.rawg.io/api/games?key=b84ccf2052cb47f282ee68d5c06e6991&dates=2022-01-01,2022-01-31&page_size=4&search=${slug}`
+        `https://api.rawg.io/api/games?key=b84ccf2052cb47f282ee68d5c06e6991&page_size=40&search=${slug}`
       );
 
 
