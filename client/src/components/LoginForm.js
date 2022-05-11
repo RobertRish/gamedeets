@@ -27,7 +27,7 @@ const LoginForm = () => {
       event.stopPropagation();
     }
 
-    
+    /*
     try {
       const response = await loginUser(userFormData);
 
@@ -42,8 +42,8 @@ const LoginForm = () => {
       console.error(err);
       setShowAlert(true);
     }
-   
-
+   */
+  
     try {
       const { data } = await login({
         variables: { ...userFormData }

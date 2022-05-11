@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 
-import { getMe, handleDeleteGame } from '../utils/API';
-import { removeGamesId } from '../utils/localStorage';
+//import { getMe, handleDeleteGame } from '../utils/API';
+import { removeGameId } from '../utils/localStorage';
 import Auth from '../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
@@ -28,7 +28,7 @@ const SavedGames = () => {
         variables: { gameId },
       });
 
-      removeGamesId(gameId);
+      removeGameId(gameId);
     } catch (err) {
       console.error(err);
     }
