@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
-import { saveGames, searchGoogleGames } from '../utils/API';
+//import { saveGames, searchGoogleGames } from '../utils/API';
 import { saveGameIds, getSavedGameIds } from '../utils/localStorage';
 
 //Specs
@@ -18,7 +18,7 @@ const SearchGames = () => {
   
   const [savedGameIds, setSavedGameIds] = useState(getSavedGameIds());
 
-  const [saveGames, { error }] = useMutation(SAVE_GAME);
+  const [saveGame, { error }] = useMutation(SAVE_GAME);
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
@@ -29,13 +29,16 @@ const SearchGames = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    let slug = searchInput.split(' ').join('-').toLowerCase();
+
     if (!searchInput) {
       return false;
     }
 
+    console.log("Input is :   " + searchInput);
     try {
       const response = await fetch(
-        `https://api.twitch.tv/helix/games/top=${searchInput}`
+        `https://api.rawg.io/api/games?key=b84ccf2052cb47f282ee68d5c06e6991&dates=2022-01-01,2022-01-31&page_size=4&search=${slug}`
       );
 
 
@@ -43,14 +46,13 @@ const SearchGames = () => {
         throw new Error('something went wrong!');
       }
 
-      const { items } = await response.json();
+      const { results } = await response.json();
+      console.log(results);
 
-      const gameData = items.map((game) => ({
+      const gameData = results.map((game) => ({
         gameId: game.id,
-        authors: game.volumeInfo.authors || ['No author to display'],
-        title: game.volumeInfo.title,
-        description: game.volumeInfo.description,
-        image: game.volumeInfo.imageLinks?.thumbnail || '',
+        gameName: game.name,
+        artURL: game.background_image,
       }));
 
       setSearchedGames(gameData);
@@ -76,7 +78,7 @@ const SearchGames = () => {
     }
 
     try {
-      const { data } =  await saveBook({
+      const { data } =  await saveGame({
         variables: { gameData: { ...gameToSave } }, }
       );
 
@@ -116,20 +118,20 @@ const SearchGames = () => {
       <Container>
         <h2>
           {searchedGames.length
-            ? `Viewing ${searchedGamess.length} results:`
+            ? `Viewing ${searchedGames.length} results:`
             : 'Search for a game to begin'}
         </h2>
         <CardColumns>
           {searchedGames.map((game) => {
             return (
               <Card key={game.gameId} border='dark'>
-                {game.image ? (
-                  <Card.Img src={game.image} alt={`The cover for ${bame.title}`} variant='top' />
+                {game.artURL ? (
+                  <Card.Img src={game.artURL} alt={`The cover for ${game.gameName}`} variant='top' />
                 ) : null}
                 <Card.Body>
-                  <Card.Title>{game.title}</Card.Title>
+                  <Card.Title>{game.gameName}</Card.Title>
                   <p className='small'>Authors: {game.authors}</p>
-                  <Card.Text>{game.description}</Card.Text>
+                  <Card.Text>{game.gameName}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedGameIds?.some((savedGameId) => savedGameId === game.gameId)}
