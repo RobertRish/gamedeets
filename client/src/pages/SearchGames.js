@@ -90,7 +90,7 @@ const SearchGames = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
+      <Jumbotron fluid className='text-light bg-secondary'>
         <Container>
           <h1>Search for Games!</h1>
           <Form onSubmit={handleFormSubmit}>
@@ -106,7 +106,7 @@ const SearchGames = () => {
                 />
               </Col>
               <Col xs={12} md={4}>
-                <Button type='submit' variant='success' size='lg'>
+                <Button type='submit' variant='info' size='lg'>
                   Submit Search
                 </Button>
               </Col>
@@ -119,7 +119,7 @@ const SearchGames = () => {
         <h2>
           {searchedGames.length
             ? `Viewing ${searchedGames.length} results:`
-            : 'Search for a game to begin'}
+            : 'To begin, search for a game'}
         </h2>
         <CardColumns>
           {searchedGames.map((game) => {
