@@ -38,7 +38,7 @@ const SearchGames = () => {
     console.log("Input is :   " + searchInput);
     try {
       const response = await fetch(
-        `https://api.rawg.io/api/games?key=b84ccf2052cb47f282ee68d5c06e6991&dates=2022-01-01,2022-01-31&page_size=4&search=${slug}`
+        `https://api.rawg.io/api/games?key=b84ccf2052cb47f282ee68d5c06e6991&page_size=40&search=${slug}`
       );
 
 
@@ -92,7 +92,7 @@ const SearchGames = () => {
     <>
       <Jumbotron fluid className='text-light bg-secondary'>
         <Container>
-          <h1>Search for Games!</h1>
+          <h1>Search for Games</h1>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
@@ -130,8 +130,7 @@ const SearchGames = () => {
                 ) : null}
                 <Card.Body>
                   <Card.Title>{game.gameName}</Card.Title>
-                  <p className='small'>Authors: {game.authors}</p>
-                  <Card.Text>{game.gameName}</Card.Text>
+                  <Card.Text>{}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedGameIds?.some((savedGameId) => savedGameId === game.gameId)}
