@@ -130,8 +130,7 @@ const SearchGames = () => {
                 ) : null}
                 <Card.Body>
                   <Card.Title>{game.gameName}</Card.Title>
-                  <p className='small'>Authors: {game.authors}</p>
-                  <Card.Text>{game.gameName}</Card.Text>
+                  <Card.Text>{}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedGameIds?.some((savedGameId) => savedGameId === game.gameId)}
