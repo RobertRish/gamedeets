@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # GameDeets
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -12,9 +14,8 @@
 6. [Test](#test)
 7. [License](#license)
 8. [Questions](#questions)
-9. [Screenshots](#screenshots)
-10. [Presentation](#presentation)
-11. [Links](#links)
+9. [Presentation](#presentation)
+10. [Links](#links)
 
 ## Description
 
@@ -26,11 +27,15 @@ Run "npm i"
 
 ## Usage
 
-
+This site is used for searching and saving games that you intend to and have completed
 
 ## Contribution
 
+[Alex Martinez Jr](https://github.com/amartinezjr7)
 
+[Dunia Habhab]()
+
+[Kerry Long]()
 
 ## Test
 
@@ -58,13 +63,10 @@ Run "npm i"
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
         SOFTWARE.
 
-
 ## Questions
 
 Visit my GitHub page! [RobertRish](https://github.com/RobertRish)
 If you have questions feel free to reach out!: robert.rish1225@gmail.com
-
-## Screenshots
 
 ## Presentation
 
