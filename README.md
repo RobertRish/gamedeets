@@ -8,13 +8,11 @@
 2. [Description](#description)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [Contributing](#contributing)
-6. [Test](#test)
-7. [License](#license)
-8. [Questions](#questions)
-9. [Screenshots](#screenshots)
-10. [Presentation](#presentation)
-11. [Links](#links)
+5. [License](#license)
+6. [Questions](#questions)
+7. [Screenshots](#screenshots)
+8. [Presentation](#presentation)
+9. [Links](#links)
 
 ## Description
 
@@ -25,14 +23,6 @@ A website
 Run "npm i"
 
 ## Usage
-
-
-
-## Contribution
-
-
-
-## Test
 
 ## License
 
