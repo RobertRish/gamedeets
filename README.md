@@ -33,9 +33,11 @@ This site is used for searching and saving games that you intend to and have com
 
 [Alex Martinez Jr](https://github.com/amartinezjr7)
 
-[Dunia Habhab]()
+[Dunia Habhab](https://github.com/duniahabhab)
 
-[Kerry Long]()
+[Kerry Long](https://github.com/VictoriousOne)
+
+[Rob Rish](https://github.com/RobertRish)
 
 ## Test
 
@@ -73,5 +75,7 @@ If you have questions feel free to reach out!: robert.rish1225@gmail.com
 https://docs.google.com/presentation/d/1VUdvPt41k6BbiBAkzy_2CH7DpYrjvfW5Z_1oq8enILI/edit#slide=id.p
 
 ## Links
+
+https://robertrish.github.io/gamedeets/
 
 https://dashboard.heroku.com/apps/immense-lake-44449/deploy/heroku-git
