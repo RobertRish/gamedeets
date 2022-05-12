@@ -1,22 +1,26 @@
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { setContext } from '@apollo/client/link/context';
-import SearchGames from './pages/SearchGames';
-import SavedGames from './pages/SavedGames';
-import Navbar from './components/Navbar';
-
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { setContext } from "@apollo/client/link/context";
+import SearchGames from "./pages/SearchGames";
+import SavedGames from "./pages/SavedGames";
+import Navbar from "./components/Navbar";
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -33,9 +37,10 @@ function App() {
         <>
           <Navbar />
           <Switch>
-            <Route exact path='/' component={SearchGames} />
-            <Route exact path='/saved' component={SavedGames} />
-            <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+            <Route exact path="/gamedeets" component={SearchGames} />
+            <Route exact path="/" component={SearchGames} />
+            <Route exact path="/saved" component={SavedGames} />
+            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
         </>
       </Router>
