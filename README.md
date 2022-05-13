@@ -19,7 +19,9 @@
 
 ## Description
 
-A website
+This is a MERN stack application that uses an Apollo Server to use GraphQL queries and mutations to fetch and modify data. The Apollo server is applied to the Express.js server as middleware and authentication is done by way of JSON Web Tokens.
+
+Users are able to search for video games and, once signed up/logged in, can save video games to a list.
 
 ## Installation
 
@@ -27,7 +29,9 @@ Run "npm i"
 
 ## Usage
 
-This site is used for searching and saving games that you intend to and have completed
+Once you open the application, sign up by clicking the "Log In/Sign Up" in the top right-hand corner of the page.  
+Search for a game you'd like to add to your "Saved Games" list and click the "Save this game!" button on the game's card.  
+To view your list of saved games,  click the "See Your Games" button in the navigation bar.
 
 ## Contribution
 
