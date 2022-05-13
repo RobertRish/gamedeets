@@ -11,7 +11,7 @@
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Contributing](#contributing)
-6. [Test](#test)
+6. [Screenshots](#screenshots)
 7. [License](#license)
 8. [Questions](#questions)
 9. [Presentation](#presentation)
@@ -39,7 +39,11 @@ This site is used for searching and saving games that you intend to and have com
 
 [Rob Rish](https://github.com/RobertRish)
 
-## Test
+## Screenshots
+
+![screenshot1](client/src/assets/images/ss1.png)
+![screenshot2](client/src/assets/images/ss2.png)
+![screenshot3](client/src/assets/images/ss3.png)
 
 ## License
 
